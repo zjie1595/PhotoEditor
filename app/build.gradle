@@ -2,6 +2,14 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('C:\\Users\\zj\\Documents\\GitHub\\PhotoEditor\\keystore\\photo_editor.jks')
+            storePassword '123456'
+            keyAlias 'alias'
+            keyPassword '123456'
+        }
+    }
     namespace 'com.burhanrashid52.photoediting'
     compileSdkVersion 33
 
@@ -12,6 +20,17 @@ android {
         versionCode 8
         versionName "3.0.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    flavorDimensions "default"
+
+    productFlavors {
+        product {
+            dimension "default"
+            applicationId "com.zj.photoediting"
+            versionCode 1
+            versionName "1.0.0"
+        }
     }
 
     buildTypes {
